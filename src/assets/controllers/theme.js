@@ -1,45 +1,5 @@
-let url_raiz = "../../assets/icons/";
-
-const change_theme_claro_login = () => {
-    if(document.documentElement.style.getPropertyValue("--color-fondo-login") !== "#00ffff"){
-        document.documentElement.style.setProperty("--color-fondo-login","#00ffff");
-        document.documentElement.style.setProperty("--color-text-login","#000000");   
-        document.documentElement.style.setProperty("--color-theme-claro-active",'#000000');
-        document.documentElement.style.setProperty("--color-theme-intermedio-active",'#00ffff');
-        document.documentElement.style.setProperty("--color-theme-oscuro-active",'#00ffff');
-        document.documentElement.style.setProperty("--color-theme-claro-hover-active",'#000000');
-        document.documentElement.style.setProperty("--color-theme-intermedio-hover-active",'#000000');
-        document.documentElement.style.setProperty("--color-theme-oscuro-hover-active",'#000000');
-        document.documentElement.style.setProperty("--color-text-error-login",'#0000ff');
-    }
-}
-const change_theme_intermedio_login = () => {
-    if(document.documentElement.style.getPropertyValue("--color-text-login") !== "#00ffff" || document.documentElement.style.getPropertyValue("--color-text-login") !== "#000000"){
-        document.documentElement.style.setProperty("--color-fondo-login","#000000");
-        document.documentElement.style.setProperty("--color-text-login","#2df9bf");   
-        document.documentElement.style.setProperty("--color-theme-claro-active",'#000000');
-        document.documentElement.style.setProperty("--color-theme-intermedio-active",'#2df9bf');
-        document.documentElement.style.setProperty("--color-theme-oscuro-active",'#000000');
-        document.documentElement.style.setProperty("--color-theme-claro-hover-active",'#2df9bf');
-        document.documentElement.style.setProperty("--color-theme-intermedio-hover-active",'#2df9bf');
-        document.documentElement.style.setProperty("--color-theme-oscuro-hover-active",'#2df9bf');
-        document.documentElement.style.setProperty("--color-text-error-login",'#ff0000');
-    }
-}
-const change_theme_oscuro_login = () => {
-    if(document.documentElement.style.getPropertyValue("--color-text-login") !== "#00ffff"){
-        document.documentElement.style.setProperty("--color-fondo-login","#000000");
-        document.documentElement.style.setProperty("--color-text-login","#00ffff");   
-        document.documentElement.style.setProperty("--color-theme-claro-active",'#000000');
-        document.documentElement.style.setProperty("--color-theme-intermedio-active",'#000000');
-        document.documentElement.style.setProperty("--color-theme-oscuro-active",'#00ffff');
-        document.documentElement.style.setProperty("--color-theme-claro-hover-active",'#00ffff');
-        document.documentElement.style.setProperty("--color-theme-intermedio-hover-active",'#00ffff');
-        document.documentElement.style.setProperty("--color-theme-oscuro-hover-active",'#00ffff');
-        document.documentElement.style.setProperty("--color-text-error-login",'#ff0000');
-    }
-}
-const change_theme_claro = () => {
+var change_theme_claro = () => {
+    Detectar_primera_vez_theme();
     if(document.documentElement.style.getPropertyValue("--color-font-primary") !== "#ffffffb1"){
         document.documentElement.style.setProperty("--color-font-primary","#ffffffb1");
         document.documentElement.style.setProperty("--color-text-primary","#00b900");
@@ -53,11 +13,16 @@ const change_theme_claro = () => {
 
         Version_logos_habilidad("1");
         if(document.getElementById("next1_proyecto")){
-            document.getElementById("next1_proyecto").src = url_raiz+"next_4.png";
+            document.getElementById("next1_proyecto").src = "../../assets/icons/next_4.png";
+        }
+        if(document.getElementById("logo-menu")){
+            document.getElementById("icon-favicon").href = "./favicon.ico";
+            document.getElementById("logo-menu").src = "./favicon.ico";
         }
     }
 }
-const change_theme_intermedio = () => {
+var change_theme_intermedio = () => {
+    Detectar_primera_vez_theme();
     if(document.documentElement.style.getPropertyValue("--color-font-primary") !== "#000000"){
         document.documentElement.style.setProperty("--color-font-primary","#000000");
         document.documentElement.style.setProperty("--color-text-primary","#00ffff");
@@ -71,11 +36,16 @@ const change_theme_intermedio = () => {
 
         Version_logos_habilidad("2");
         if(document.getElementById("next1_proyecto")){
-            document.getElementById("next1_proyecto").src = url_raiz+"next_5.png";
+            document.getElementById("next1_proyecto").src = "../../assets/icons/next_5.png";
+        }
+        if(document.getElementById("logo-menu")){
+            document.getElementById("icon-favicon").href = "./assets/icons/theme_intermedio/favicon.ico";
+            document.getElementById("logo-menu").src = "../../../assets/icons/theme_intermedio/favicon.ico";
         }
     }
 }
-const change_theme_oscuro = () => {
+var change_theme_oscuro = () => {
+    Detectar_primera_vez_theme();
     if(document.documentElement.style.getPropertyValue("--color-font-primary") !== "#02172d"){
         document.documentElement.style.setProperty("--color-font-primary","#02172d");
         document.documentElement.style.setProperty("--color-text-primary","#2df9bf");
@@ -91,7 +61,11 @@ const change_theme_oscuro = () => {
         Version_logos_habilidad("3");
 
         if(document.getElementById("next1_proyecto")){
-            document.getElementById("next1_proyecto").src = url_raiz+"next_6.png";
+            document.getElementById("next1_proyecto").src = "../../assets/icons/next_6.png";
+        }
+        if(document.getElementById("logo-menu")){
+            document.getElementById("icon-favicon").href = "./assets/icons/theme_oscuro/favicon.ico";
+            document.getElementById("logo-menu").src = "../../../assets/icons/theme_oscuro/favicon.ico";
         }
     }
 }
@@ -101,4 +75,7 @@ function Version_logos_habilidad(number_version){
 }
 function Get_src(name_icon,number_version){
     return "../../assets/icons/"+name_icon+"_"+number_version+".png";
+}
+function Detectar_primera_vez_theme(){
+    document.documentElement.style.setProperty("--icono-theme","_");
 }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
 import Experiencia_laboral from '../../schema/experiencia_laboral';
 
 @Component({
@@ -9,13 +8,8 @@ import Experiencia_laboral from '../../schema/experiencia_laboral';
 })
 
 export class ExperienciaLaboralComponent implements OnInit {
-  protected acceso = (environment.sesion.edicion_permitida==false)? undefined : true;
-  protected mensaje : any = undefined;
-  protected title : string = 'AÑADIR EXPERIENCIA';
-  protected name_button : string = "REGISTRAR";
-  protected experiencias_laborales = new Array<Experiencia_laboral>();
-  protected selectedExperiencia : Experiencia_laboral = this.Limpiar();
-
+  protected experiencias_laborales : Experiencia_laboral[] = [];
+  
   constructor() { }
 
   ngOnInit(): void {
@@ -43,50 +37,5 @@ export class ExperienciaLaboralComponent implements OnInit {
         url_imagen : "../../../assets/images/Logo-inspeccionar_de_calzados.webp"
       }
     ];
-  }
-
-  protected Add_edit_experiencia() : void{
-    if(this.selectedExperiencia.id_experiencia == 0){
-      this.selectedExperiencia.id_experiencia = this.experiencias_laborales.length + 1;
-      this.experiencias_laborales.push(this.selectedExperiencia);
-      this.mensaje = 'Experiencia registrada.';
-    }else{
-      this.mensaje = 'Experiencia actualizada.';
-    }
-    this.selectedExperiencia = this.Limpiar();
-  }
-
-  protected Edit_experiencia(experiencia:Experiencia_laboral) : void{
-    this.title = this.Get_title(experiencia.id_experiencia);
-    this.selectedExperiencia = experiencia;
-  }
-
-  protected Delete_experiencia(id:number) : void{
-    if(confirm("Estas seguro que deseas eliminar la experiencia")){
-      this.experiencias_laborales = this.experiencias_laborales.filter(i => i.id_experiencia != id);
-    }
-  }
-
-  private Limpiar() : Experiencia_laboral{
-    return {
-      id_experiencia : 0,
-      empresa : "",
-      puesto : "",
-      fecha_inicio : "",
-      fecha_fin : "",
-      url_imagen : "",
-      descripcion : ""
-    }
-  }
-
-  private Get_title(id:number) : string {
-    this.name_button = (id==0)? "REGISTRAR" : "ACTUALIZAR";
-    return (id==0)? "AÑADIR EXPERIENCIA" : "EDITAR EXPERIENCIA";
-  }
-
-  protected Reiniciar() : void{
-    this.selectedExperiencia = this.Limpiar();
-    this.title = this.Get_title(0);
-    this.mensaje  = undefined;
   }
 }

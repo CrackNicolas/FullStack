@@ -187,29 +187,3 @@
         height: 230px;
     }
 }
-/**--------Edicion presentacion---------**/
-#edit-presentacion h1{
-    font-size: 20px;
-    letter-spacing: 3.1px;
-    font-family: var(--tipo-letra-modal-add-edit);
-}
-.lista-presentacion{
-    overflow-y: scroll;
-    height: 350px;
-    scrollbar-color: var(--color-text-primary);
-}
-.lista-presentacion::-webkit-scrollbar{
-    width: 7px;
-}
-.lista-presentacion::-webkit-scrollbar-thumb{
-    background: var(--color-text-primary);
-    border-radius: 30px;
-}
-.items-presentacion{
-    padding-right: 5px;
-    height: auto;
-}
-#edit-presentacion ion-icon{
-    color: var(--color-text-primary);
-}
-/**------------------------**/

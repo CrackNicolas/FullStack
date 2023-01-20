@@ -1,6 +1,4 @@
-import { environment } from './../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
-
 import Pasatiempo, { Categoria } from '../../schema/pasatiempo';
 
 @Component({
@@ -9,25 +7,12 @@ import Pasatiempo, { Categoria } from '../../schema/pasatiempo';
   styleUrls: ['./pasatiempos.component.css']
 })
 export class PasatiemposComponent implements OnInit {
-  protected acceso = (environment.sesion.edicion_permitida==false)? undefined : true;
-  protected mensaje : any = undefined;
-  protected title : string = 'AÑADIR PASATIEMPO';
-  protected name_button : string = "REGISTRAR";
-  protected pasatiempos = new Array<Pasatiempo>();
-
-  protected selectedPasatiempo : Pasatiempo = this.Limpiar();
-  protected selectedCategoria = Categoria;
-
-  protected modal_peticion = "add-pasatiempo";
+  protected pasatiempos : Pasatiempo[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
     this.Instanciar_pasatiempos();
-  }
-
-  protected Ver_icono(name_icon:string) : void{
-    this.selectedPasatiempo.nombre_logo = name_icon;
   }
 
   private Instanciar_pasatiempos() : void {
@@ -52,48 +37,4 @@ export class PasatiemposComponent implements OnInit {
       }
     ];
   }
-
-  protected Add_edit_pasatiempo() : void{
-    if(this.selectedPasatiempo.id_pasatiempo == 0){
-      this.selectedPasatiempo.id_pasatiempo = this.pasatiempos.length + 1;
-      this.pasatiempos.push(this.selectedPasatiempo);
-      this.mensaje = 'Pasatiempo registrado.';
-    }else{
-      this.mensaje = 'Pasatiempo actualizado.';
-    }
-    this.selectedPasatiempo = this.Limpiar();
-  }
-
-  protected Edit_pasatiempo(pasatiempo:Pasatiempo) : void {
-    this.Reiniciar();
-    this.title = this.Get_title(pasatiempo.id_pasatiempo);
-    this.selectedPasatiempo = pasatiempo;
-  }
-
-  protected Delete_pasatiempo(id:number) : void {
-    if(confirm("Estas seguro que deseas eliminar el pasatiempo")){
-      this.pasatiempos = this.pasatiempos.filter(i => i.id_pasatiempo != id);
-    }
-  }
-
-  private Limpiar() : Pasatiempo {
-    return {
-      id_pasatiempo : 0,
-      descripcion : "",
-      nombre_logo : "",
-      categoria : Categoria.Otros
-    }
-  }
-
-  private Get_title(id:number) : string {
-    this.name_button = (id==0)? "REGISTRAR" : "ACTUALIZAR";
-    return (id==0)? "AÑADIR PASATIEMPO" : "EDITAR PASATIEMPO";
-  }
-
-  protected Reiniciar() : void {
-    this.selectedPasatiempo = this.Limpiar();
-    this.title = this.Get_title(0);
-    this.mensaje  = undefined;
-  }
-
 }

@@ -61,10 +61,3 @@
         height: 200px;
     }
 }
-/**--------Edicion educacion---------**/
-#add-educacion h1{
-    font-size: 20px;
-    letter-spacing: 3.1px;
-    font-family: var(--tipo-letra-modal-add-edit);
-}
-/**----------------------------------**/

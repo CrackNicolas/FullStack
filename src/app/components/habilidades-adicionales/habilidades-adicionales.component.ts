@@ -1,7 +1,4 @@
-import { environment } from './../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
-
-import { LoadScriptsService } from '../../services/load-scripts.service';
 import Habilidad, { Estado, Tipo } from '../../schema/habilidad';
 
 @Component({
@@ -10,28 +7,12 @@ import Habilidad, { Estado, Tipo } from '../../schema/habilidad';
   styleUrls: ['./habilidades-adicionales.component.css']
 })
 export class HabilidadesAdicionalesComponent implements OnInit {
-  protected acceso = (environment.sesion.edicion_permitida==false)? undefined : true;
-  protected mensaje:any = undefined;
-  protected title : string = "AÑADIR HABILIDAD";
-  protected name_button : string = "REGISTRAR";
-  private habilidades = new Array<Habilidad>();
+  private habilidades : Habilidad[] = [];
   
-  protected selectedHabilidad = this.Limpiar();
-  protected selectedEstado = Estado;
-  protected selectedTipo = Tipo;
-
-  protected modal_peticion = "add-habilidad-adicional";
-
-  constructor(private load_script:LoadScriptsService) { 
-    load_script.load_files("slider_control");
-  }
+  constructor() { }
 
   ngOnInit(): void {
     this.Instanciar_habilidades();
-  }
-
-  protected Ver_icono(name_icon:string) : void{
-    this.selectedHabilidad.nombre_icono = name_icon;
   }
 
   protected Get_habilidades_blandas() {
@@ -154,51 +135,4 @@ export class HabilidadesAdicionalesComponent implements OnInit {
       }
     ];
   }
-
-  protected Add_edit_habilidad_adicional() : void {
-    if(this.selectedHabilidad.id_habilidad == 0){
-      this.selectedHabilidad.estado = Estado.uso_actual;
-      this.selectedHabilidad.id_habilidad = this.habilidades.length + 1;
-      this.habilidades.push(this.selectedHabilidad);
-      this.mensaje = 'Habilidad registrada.';
-    }else{
-      this.mensaje = 'Habilidad actualizada.';
-    }
-    this.selectedHabilidad = this.Limpiar();
-  }
-
-  protected Edit_habilidad(habilidad:Habilidad) : void {
-    this.title = this.Get_title(habilidad.id_habilidad);
-    this.selectedHabilidad = habilidad;
-  }
-
-  protected Delete_habilidad(id:number) : void {
-    if(confirm("Estas seguro que deseas eliminar la habilidad")){
-      this.habilidades = this.habilidades.filter(i => i.id_habilidad != id);
-    }
-  }
-
-  private Get_title(id:number) : string {
-    this.name_button = (id==0)? "REGISTRAR" : "ACTUALIZAR";
-    return (id==0)? "AÑADIR HABILIDAD" : "EDITAR HABILIDAD";
-  }
-
-  private Limpiar() : Habilidad{
-    return {
-      id_habilidad : 0,
-      nombre : '',
-      porcentaje : 0,
-      nombre_icono : "",      
-      tipo : Tipo.blanda,
-      estado : Estado.uso_actual
-    }
-  }
-
-  protected Reiniciar() : void{
-    this.selectedHabilidad = this.Limpiar();
-    this.title = this.Get_title(0);
-    this.mensaje  = undefined;
-  }
-
-
 }

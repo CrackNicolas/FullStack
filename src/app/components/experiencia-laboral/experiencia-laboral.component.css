@@ -61,13 +61,3 @@
     }
 }
 /**-------------------------------**/
-/**--------Edicion experiencia laboral--------**/
-#add-experiencia-laboral h1{
-    font-size: 20px;
-    letter-spacing: 3.1px;
-    font-family: var(--tipo-letra-modal-add-edit);
-}
-#add-experiencia-laboral ion-icon{
-    color: var(--color-text-primary);
-}
-/**-------------------------------------------**/

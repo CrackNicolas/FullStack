@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, TestabilityRegistry } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-selected-icon',

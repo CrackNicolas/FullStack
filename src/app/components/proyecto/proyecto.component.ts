@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { LoadScriptsService } from '../../services/load-scripts.service';
 import Proyecto from '../../schema/proyecto';
-
-import { LoadScriptsService } from '../../services/load-scripts.service'; 
 
 @Component({
   selector: 'app-proyecto',
@@ -10,16 +8,7 @@ import { LoadScriptsService } from '../../services/load-scripts.service';
   styleUrls: ['./proyecto.component.css']
 })
 export class ProyectoComponent implements OnInit {
-  protected acceso = (environment.sesion.edicion_permitida==false)? undefined : true;
-  protected mensaje : any = undefined;
-  protected title : string = 'AÑADIR PROYECTO';
-  protected name_button : string = "REGISTRAR";
-  protected proyectos = new Array<Proyecto>();
-
-  protected selectedProyecto : Proyecto = this.Limpiar();
-  protected selectedTecnologia : string = '';
-
-  protected modal_peticion = "add-proyecto";
+ protected proyectos : Proyecto[] = [];
 
   constructor(private load_script:LoadScriptsService) { 
     load_script.load_files("swiper_proyecto");
@@ -128,73 +117,5 @@ export class ProyectoComponent implements OnInit {
         link_git : "https://github.com/"
       }
     ];
-  }
-
-  protected Add_tecnologia() : void{
-    if(this.selectedProyecto.tecnologias_usadas.length==0){
-      this.selectedProyecto.tecnologias_usadas += this.selectedTecnologia
-    }else{
-      this.selectedProyecto.tecnologias_usadas += ','+this.selectedTecnologia
-    }
-    this.selectedTecnologia = '';
-    this.mensaje = 'Tecnologia añadida.';
-  }
-
-  protected Get_tecnologias() {
-    let array_tecnologias: string[] = [];
-    this.selectedProyecto.tecnologias_usadas.split(",").map(i => (
-      (i!="")? array_tecnologias.push(i) : ""
-    ));
-    return array_tecnologias;
-  }
-
-  protected Add_edit_proyecto() : void {
-    if(this.selectedProyecto.id_proyecto == 0){
-      this.selectedProyecto.id_proyecto = this.proyectos.length + 1;
-      this.proyectos.push(this.selectedProyecto);
-      this.mensaje = 'Proyecto registrado.';
-    }else{
-      this.mensaje = 'Proyecto actualizado.';
-    }
-    this.selectedProyecto = this.Limpiar();
-  }
-
-  protected Edit_proyecto(proyecto:Proyecto) : void{
-    this.title = this.Get_title(proyecto.id_proyecto);
-    this.selectedProyecto = proyecto;
-  }
-
-  protected Delete_proyecto(id:number) : void {
-    if(confirm("Estas seguro que deseas eliminar la proyecto")){
-      this.proyectos = this.proyectos.filter(i => i.id_proyecto != id);
-    }
-  }
-
-  protected Delete_item_tecnologia(name:string) : void {
-    if(confirm("Estas seguro que deseas eliminar la tecnologia")){
-      this.selectedProyecto.tecnologias_usadas = this.selectedProyecto.tecnologias_usadas.split(",").filter(i => i != name).toString();
-    }
-  }
-
-  private Get_title(id:number) : string {
-    this.name_button = (id==0)? "REGISTRAR" : "ACTUALIZAR";
-    return (id==0)? "AÑADIR PROYECTO" : "EDITAR PROYECTO";
-  }
-
-  private Limpiar() : Proyecto {
-    return {
-      id_proyecto : 0,
-      nombre : '',
-      url_imagen : '',
-      descripcion : '',
-      tecnologias_usadas : '',
-      link_git : ''
-    }
-  }
-
-  protected Reiniciar() : void {
-    this.selectedProyecto = this.Limpiar();
-    this.title = this.Get_title(0);
-    this.mensaje  = undefined;
   }
 }

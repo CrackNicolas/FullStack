@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
-
+import { LoadScriptsService } from '../../services/load-scripts.service';
 import Habilidad, { Estado, Tipo } from '../../schema/habilidad';
 import Persona from '../../schema/persona';
-
-import { LoadScriptsService } from '../../services/load-scripts.service';
 
 @Component({
   selector: 'app-presentacion',
@@ -12,10 +9,8 @@ import { LoadScriptsService } from '../../services/load-scripts.service';
   styleUrls: ['./presentacion.component.css']
 })
 export class PresentacionComponent implements OnInit {
-  protected acceso = (environment.sesion.edicion_permitida==false)? undefined : true;
-  protected mensaje : any = undefined;
   protected presentacion : Persona = this.Limpiar_presentacion();
-  protected tecnologias = new Array<Habilidad>();
+  protected habilidades : Habilidad[] = [];
 
   constructor(private load_script:LoadScriptsService) { 
     load_script.load_files("theme");
@@ -41,7 +36,7 @@ export class PresentacionComponent implements OnInit {
     }
   }
   private Instanciar_tecnologias_de_manejo_actual() : void {
-    this.tecnologias = [
+    this.habilidades = [
       {
         id_habilidad : 1,
         nombre : "HTML5", 
@@ -124,9 +119,10 @@ export class PresentacionComponent implements OnInit {
       }
     ];
   }
-
-  protected Actualizar_presentacion() : void{
-    this.mensaje = "PRESENTACION LISTA.";   
+ 
+  protected Get_habilidades(mitad:string) : Habilidad [] {
+    let longitud = this.habilidades.length;
+    return (mitad==="start")? this.habilidades.slice(0,longitud/2) : this.habilidades.slice(longitud/2,longitud);
   }
 
   private Limpiar_presentacion() : Persona{

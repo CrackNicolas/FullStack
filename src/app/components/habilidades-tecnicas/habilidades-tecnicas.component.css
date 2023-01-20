@@ -153,23 +153,3 @@
     }
 }
 /**---------------------**/
-/**-----------Edicion habilidad tecnica----------**/
-#add-habilidad-tecnica h1{
-    font-size: 20px;
-    letter-spacing: 3.1px;
-    font-family: var(--tipo-letra-modal-add-edit);
-}
-#add-habilidad-tecnica select{
-    border-radius: 6px;
-}
-#add-habilidad-tecnica select, #add-habilidad-tecnica option{
-    color: var(--color-text-select);
-    outline: none;
-}
-#add-habilidad-tecnica select:hover{
-    cursor: pointer;
-}
-#add-habilidad-tecnica ion-icon{
-    color: var(--color-text-primary);
-}
-/**----------------------------------------------**/
