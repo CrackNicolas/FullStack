@@ -182,3 +182,289 @@ html,body{
     }
 }
 /**----------------------------------**/
+/**-------------Portada--------------**/
+@media (min-width : 1300px){
+    .name,.profesion{
+        font-size: 26px;
+        width: 250px;
+    }
+    .intro{
+        font-size: 20px;
+    }
+}
+@media (min-width : 1350px){
+    .iniciales{
+        left: 41%;
+    }
+    .intro{
+        left: 27%;
+    }
+}
+@media (min-width : 1400px){
+    .iniciales{
+        left: 42%;
+    }
+    .intro{
+        left: 28%;
+    }
+}
+@media (min-width : 1500px){
+    .iniciales{
+        left: 42.5%;
+    }
+    .intro{
+        left: 30%;
+    }
+}
+@media (min-width : 1665px){
+    .iniciales{
+        left: 43%;
+    }
+    .intro{
+        left: 32%;
+    }
+}
+@media (min-width : 1900px){
+    .iniciales{
+        left: 44%;
+    }
+    .intro{
+        left: 33.5%;
+    }
+}
+@media (min-width : 2200px){
+    .iniciales{
+        left: 45%;
+    }
+    .intro{
+        left: 35%;
+    }
+}
+@media (max-width : 1200px){
+    .iniciales{
+        left: 39%;
+    }
+    .intro{
+        left: 20%;
+    }
+}
+@media (max-width : 1100px){
+    .iniciales{
+        left: 38%;
+    }
+    .intro{
+        left: 19%;
+    }
+}
+@media (max-width : 1000px){
+    .iniciales{
+        left: 37%;
+    }
+    .intro{
+        left: 16%;
+    }
+}
+@media (max-width : 900px){
+    .iniciales{
+        left: 35.5%;
+    }
+    .intro{
+        left: 11%;
+    }
+}
+@media (max-width : 800px){
+    .iniciales{
+        left: 34%;
+    }
+    .intro{
+        left: 5%;
+    }
+}
+@media (max-width : 750px){
+    .iniciales{
+        left: 33%;
+    }
+    .intro{
+        left: 10%;
+        width: 580px;
+    }
+}
+@media (max-width : 700px){
+    .iniciales{
+        left: 31.5%;
+    }
+}
+@media (max-width : 650px){
+    .iniciales{
+        left: 30%;
+    }
+    .intro{
+        left: 3%;
+        width: 580px;
+    }
+}
+@media (max-width : 600px){
+    .iniciales{
+        left: 28%;
+    }
+    .intro{
+        left: 7.5%;
+        width: 500px;
+    }
+}
+@media (max-width : 550px){
+    .iniciales{
+        left: 26.5%;
+    }
+    .intro{
+        left: 9%;
+        width: 450px;
+    }
+}
+@media (max-width : 500px){
+    .iniciales{
+        left: 25%;
+    }
+    .intro{
+        left: 13%;
+        width: 380px;
+    }
+}
+@media (max-width: 485px){
+    .portada .container .circle{
+        width: 200px;
+        height: 200px;
+    }
+    .iniciales{
+        left: 29%;
+        letter-spacing: 85px;
+    }
+    .intro{
+        left: 11%;
+        width: 380px;
+    }
+}
+@media (max-width: 450px){
+    .iniciales{
+        left: 27.5%;
+        letter-spacing: 85px;
+    }
+    .intro{
+        left: 7%;
+        width: 380px;
+    }
+}
+@media (max-width: 415px){
+    .iniciales{
+        left: 26.5%;
+        letter-spacing: 83px;
+    }
+    .intro{
+        left: 7%;
+        width: 360px;
+    }
+}
+@media (max-width: 400px){
+    .portada .container .circle{
+        width: 180px;
+        height: 180px;
+    }
+    .iniciales{
+        left: 25%;
+        letter-spacing: 78px;
+    }
+    .intro{
+        left: 4.7%;
+        width: 360px;
+    }
+}
+@media (max-width: 375px){
+    .iniciales{
+        left: 24.5%;
+        letter-spacing: 80px;
+    }
+    .intro{
+        left: 7%;
+        width: 320px;
+    }
+}
+@media (max-width: 360px){
+    .portada .container .circle{
+        width: 170px;
+        height: 170px;
+    }
+    .iniciales{
+        left: 24%;
+        letter-spacing: 74px;
+    }
+    .intro{
+        left: 8%;
+        width: 300px;
+    }
+    .profesion{
+        right: 0px;
+        transform: rotate(-40deg);
+    }
+    .name{
+        left: 0px;
+    }
+}
+@media (max-width: 350px){
+    .iniciales{
+        left: 23%;
+        letter-spacing: 70px;
+    }
+    .intro{
+        left: 7%;
+        width: 300px;
+    }
+}
+@media (max-width: 340px){
+    .intro{
+        left: 6%;
+        width: 300px;
+    }
+}
+@media (max-width: 320px){
+    .intro{
+        left: 7%;
+        width: 280px;
+    }
+}
+@media (max-height : 640px){
+    .intro{
+        top:68%;
+    }
+}
+@media (max-height : 720px){
+    .intro{
+        top:70%;
+    }
+}
+@media (min-height : 740px){
+    .intro{
+        top:68%;
+    }
+}
+@media (max-height : 1000px){
+    .intro{
+        top:75%;
+    }
+}
+@media (max-height : 535px){
+    .portada .container .circle{
+        width: 140px;
+        height: 140px;
+    }
+    .iniciales{
+        left: 28%;
+        letter-spacing: 55px;
+    }
+    .intro,.profesion,.name{
+        font-size: 13px;
+    }
+    .profesion,.name{
+        top: 105px;
+    }
+}
+/**----------------------------------**/
