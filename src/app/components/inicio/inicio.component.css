@@ -1,0 +1,282 @@
+/**-------------Portada--------------**/
+.portada{
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--color-font-primary);
+    animation: animate_color 2s linear infinite;
+}
+.portada .container{
+    display: flex;
+    justify-content: center;
+}
+.portada .container .circle{
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 0 -10px;
+}
+.portada .container .circle span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(calc(18deg * var(--i)));
+}
+.portada .container .circle span::before{
+    content: '';
+    position: absolute;
+    right: 0;
+    top: calc(50% - 7.5px);
+    width: 20px;
+    height: 20px;
+    background: #00ff0a;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00ff0a, 0 0 20px #00ff0a, 0 0 40px #00ff0a, 0 0 60px #00ff0a, 0 0 80px #00ff0a, 0 0 100px #00ff0a;
+    transform: scale(0.1);
+    animation: animate_infinite 4s linear infinite;
+    animation-delay: calc(0.1s * var(--i));
+}
+.portada .container .circle span:hover{
+    cursor: pointer;
+    animation: animate_circle_span 1s linear infinite;
+}
+@keyframes animate_circle_span{
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-45%);
+    }
+}
+.portada .container .circle:nth-child(2){
+    transform: rotate(-180deg);
+}
+.portada .container .circle:nth-child(2) span::before{
+    animation-delay: calc(-0.1s * var(--i));
+}
+.btn-iniciar{
+    width: 102%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 20px;
+}
+.btn-iniciar button{
+    background-color: #00ff0a;
+    color: #ffffff;
+    font-size: 22px;
+    font-family: consola;
+    letter-spacing: 5.5px;
+    width: 180px;
+    height: 30px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+.btn-iniciar button:hover{
+    cursor: pointer;
+    border: 1px solid #000;
+    color: #000;
+}
+.btn-iniciar::before{
+    content: '➤';
+    margin-right: 20px;
+    animation: animate_button_before 0.8s linear infinite;
+}
+.btn-iniciar::after{
+    content: '➤';
+    margin-left: 20px;
+    margin-bottom: 4px;
+    animation: animate_button_after 0.8s linear infinite;
+}
+.name{
+    position: absolute;
+    width: 200px;
+    font-size: 17px;
+    text-align: center;
+    letter-spacing: 4.5px;
+    font-family: consola;
+    top: 130px;
+    left: 10px;
+    transform: rotate(-40deg);
+}
+.name:hover{
+    cursor: pointer;
+    animation: animate_texto_name 0.1s linear;
+}
+.profesion{
+    position: absolute;
+    width: 200px;
+    font-size: 17px;
+    text-align: center;
+    font-family: consola;
+    top: 135px;
+    right: 10px;
+    letter-spacing: 4.5px;
+    transform: rotate(40deg);
+}
+.profesion:hover{
+    cursor: pointer;
+    animation: animate_texto_profesion 0.1s linear;
+}
+.intro{
+    position: absolute;
+    font-family: consola;
+    font-size: 17px;
+    letter-spacing: 4.5px;
+    width: 100%;
+    padding: 10px 50px;
+    text-align: center;
+    align-self: flex-end;
+}
+.intro:hover{
+    cursor: pointer;
+    transform: scale(0.9);
+    animation: animate_texto_intro 2s linear infinite;
+}
+@keyframes animate_color{
+    0%{
+        filter: hue-rotate(0deg);
+    }
+    100%{
+        filter: hue-rotate(60deg);
+    }
+}
+@keyframes animate_infinite{
+    0%{
+        transform: scale(1);
+    }
+    50%,100%{
+        transform: scale(0.1);
+    }
+}
+@keyframes animate_button_after{
+    0%{
+        transform: rotate(-180deg) translateX(-15px);
+    }
+    100%{
+        transform: rotate(-180deg) translateX(15px);
+    }
+}
+@keyframes animate_button_before{
+    0%{
+        transform: translateX(-15px);
+    }
+    100%{
+        transform: translateX(15px);
+    }
+}
+@keyframes animate_texto_name{
+    0%{
+        transform: rotate(-27deg);  
+    } 
+    100%{
+        transform: rotate(-52deg);         
+    }  
+}
+@keyframes animate_texto_profesion{
+    0%{
+        transform: rotate(27deg);  
+    } 
+    100%{
+        transform: rotate(52deg);         
+    }  
+}
+@keyframes animate_texto_intro{
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.1)
+    }
+}
+@media (max-width : 550px){
+    .portada .container .circle{
+        width: 200px;
+        height: 200px;
+    }
+    .intro{
+        padding: 0px 10px;
+    }
+    .btn-iniciar::before, .btn-iniciar::after{
+        margin-right: 15px;
+    }
+    .name{
+        top: 120px;
+    }
+    .profesion{
+        top: 125px;
+    }
+}
+@media (max-width : 410px){
+    .portada .container .circle{
+        width: 170px;
+        height: 170px;
+    }
+    .name{
+        left: -3px;
+    }
+    .profesion{
+        right: -3px;
+        transform: rotate(-40deg);
+    }
+    .profesion:hover{
+        animation-name: animate_texto_name;
+    }
+}
+@media (max-width : 360px){
+    .portada .container .circle{
+        width: 150px;
+        height: 150px;
+    }
+}
+@media (max-width : 310px){
+    .portada .container .circle{
+        width: 140px;
+        height: 140px;
+    }
+}
+@media (max-height : 600px){
+    .name, .profesion, .intro{
+        font-size: 15px;
+    }
+    .name{
+        top: 110px;
+    }
+    .profesion{
+        top: 115px;
+    }
+}
+@media (max-height : 530px){
+    .portada .container .circle{
+        width: 140px;
+        height: 140px;
+    }
+    .name, .profesion, .intro{
+        font-size: 13px;
+    }
+    .name{
+        top: 105px;
+    }
+    .profesion{
+        top: 110px;
+    }
+}
+@media (max-height : 490px){
+    .portada .container .circle{
+        margin-top: 50px;
+        width: 130px;
+        height: 130px;
+    }
+    .name{
+        top: 100px;
+    }
+    .profesion{
+        top: 105px;
+        right: -3px;
+        transform: rotate(40deg);
+    }
+}
+/**----------------------------------**/
