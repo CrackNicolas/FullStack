@@ -41,12 +41,14 @@
     margin-top: 10px;
     margin-bottom: -25px;
 }
-.porcentaje:hover{
-    cursor: pointer;
-}
 .porcentaje{
     position: relative;
     border-radius: 50%;
+}
+.porcentaje:hover{
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px 0 var(--color-text-primary), 0 0 40px 0 var(--color-text-primary);
 }
 .porcentaje svg{
     width: 150px;

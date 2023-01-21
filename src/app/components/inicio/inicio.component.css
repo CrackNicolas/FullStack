@@ -6,11 +6,6 @@
     background: var(--color-font-primary);
     animation: animate_color 2s linear infinite;
 }
-@keyframes animate_portada{
-    100%{
-        transform: translateY(-590px);
-    }
-}
 .portada .container{
     display: flex;
     justify-content: center;
@@ -46,14 +41,6 @@
 .portada .container .circle span:hover{
     cursor: pointer;
     animation: animate_circle_span 1s linear infinite;
-}
-@keyframes animate_circle_span{
-    0%{
-        transform: translateX(0%);
-    }
-    100%{
-        transform: translateX(-45%);
-    }
 }
 .portada .container .circle:nth-child(2){
     transform: rotate(-180deg);
@@ -140,6 +127,19 @@
     cursor: pointer;
     transform: scale(0.9);
     animation: animate_texto_intro 2s linear infinite;
+}
+@keyframes animate_circle_span{
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-45%);
+    }
+}
+@keyframes animate_portada{
+    100%{
+        transform: translateY(-590px);
+    }
 }
 @keyframes animate_color{
     0%{

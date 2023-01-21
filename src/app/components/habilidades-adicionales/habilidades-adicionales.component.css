@@ -1,4 +1,13 @@
 /**-------Encabezado de habilidades blandas------**/
+.descripcion-skill{
+    transition-duration: 2s;
+}
+.descripcion-skill:hover{
+    cursor: pointer;
+    color: var(--color-text-primary);
+    border-radius: 4px;
+    box-shadow: 0 -5px 7px 0 var(--color-text-primary);
+}
 .blandas .descripcion{
     display: flex;
     align-items: center;

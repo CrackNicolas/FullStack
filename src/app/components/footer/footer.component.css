@@ -2,35 +2,19 @@
 #final{
     width: 95.4%;
 }
+#final h1:hover{
+    cursor: pointer;
+    color: var(--color-text-primary);
+}
+#final p:hover{
+    cursor: pointer;
+    color: var(--color-text-primary);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 4px;
+}
 #final h4{
     font-family: var(--tipo-letra-bold);
     letter-spacing: 1.5px;
-}
-.select-final{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    background-color: var(--color-font-primary);
-    border:none;
-}
-.select-final:hover{
-    cursor: default;
-}
-.select-final ion-icon{
-    width: 35px;
-    height: 35px;
-    border-radius: 5px;
-}
-.select-final h4{
-    padding-top: 9px;
-    width: 100%;
-    text-align: end;
-}
-@media (max-width : 400px){
-    .select-final ion-icon{
-        width: 30px;
-        height: 30px;
-    }
 }
 #final h1{
     font-size: 57px;

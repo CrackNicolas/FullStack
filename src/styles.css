@@ -8,6 +8,7 @@
     --color-text-tertiary: #ffffffb1;
     --color-text-quaternary: #ffffff80;
     --color-text-quintenary: #ffffff4d;
+    --color-name-habilidades: #0037ff;
     --color-sub-title-habilidades-adicionales: #0000ff;
     --color-text-menu: #2dffc3;
     --color-border-menu: #00ffff95;
@@ -162,3 +163,44 @@ html,body{
     }
 }
 /**----------------------------------**/
+.secciones{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: var(--color-font-primary);
+    border:none;
+}
+.secciones:hover{
+    cursor: default;
+}
+.secciones h4:hover{
+    cursor: pointer;
+}
+.secciones:hover ion-icon{
+    cursor: pointer;
+    animation: animate_icon 1s linear infinite;
+}
+@keyframes animate_icon{
+    0%{
+        transform: translateX(0px);
+    }
+    100%{
+        transform: translateX(10px);
+    }
+}
+.secciones ion-icon{
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+}
+.secciones h4{
+    padding-top: 9px;
+    width: 100%;
+    text-align: end;
+}
+@media (max-width : 400px){
+    .secciones ion-icon{
+        width: 30px;
+        height: 30px;
+    }
+}

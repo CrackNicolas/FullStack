@@ -10,11 +10,7 @@
     color: var(--color-text-tertiary);
     font-size: 60px;
 }
-#nombre:hover{
-    cursor: pointer;
-    color: var(--color-text-primary);
-}
-#profesion:hover{
+#nombre:hover, #profesion:hover{
     cursor: pointer;
     color: var(--color-text-primary);
 }
@@ -50,14 +46,6 @@
 #sobre-mi{
     font-family: var(--tipo-letra-bold);
     letter-spacing: 1.5px;
-}
-#direccion{
-    transition-duration: 1s;
-}
-#direccion:hover{
-    color: var(--color-text-primary);
-    cursor: pointer;
-    transform: translateX(-5px);
 }
 .tecnologias-actuales{
     display: flex;
