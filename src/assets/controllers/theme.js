@@ -16,8 +16,8 @@ var change_theme_claro = () => {
             document.getElementById("next1_proyecto").src = "../../assets/icons/next_4.png";
         }
         if(document.getElementById("logo-menu")){
-            document.getElementById("icon-favicon").href = "./favicon.ico";
-            document.getElementById("logo-menu").src = "./favicon.ico";
+            document.getElementById("icon-favicon").href = "./assets/icons/theme_claro/favicon.ico";
+            document.getElementById("logo-menu").src = "../../../assets/icons/theme_claro/favicon.ico";
         }
     }
 }
@@ -64,8 +64,8 @@ var change_theme_oscuro = () => {
             document.getElementById("next1_proyecto").src = "../../assets/icons/next_6.png";
         }
         if(document.getElementById("logo-menu")){
-            document.getElementById("icon-favicon").href = "./assets/icons/theme_oscuro/favicon.ico";
-            document.getElementById("logo-menu").src = "../../../assets/icons/theme_oscuro/favicon.ico";
+            document.getElementById("icon-favicon").href = "./favicon.ico";
+            document.getElementById("logo-menu").src = "../../../favicon.ico";
         }
     }
 }
