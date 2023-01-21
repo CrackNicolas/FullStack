@@ -6,6 +6,11 @@
     background: var(--color-font-primary);
     animation: animate_color 2s linear infinite;
 }
+@keyframes animate_portada{
+    100%{
+        transform: translateY(-590px);
+    }
+}
 .portada .container{
     display: flex;
     justify-content: center;
@@ -198,7 +203,7 @@
         height: 200px;
     }
     .intro{
-        padding: 0px 10px;
+        padding: 0px 30px;
     }
     .btn-iniciar::before, .btn-iniciar::after{
         margin-right: 15px;

@@ -33,5 +33,4 @@ const hide_or_see_nav = () => {
     }
     ubicacion_principal = ubicacion_actual;
 }
-
 window.addEventListener('scroll',hide_or_see_nav);

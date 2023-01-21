@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadScriptsService } from 'src/app/services/load-scripts.service';
 
 @Component({
   selector: 'app-inicio',
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class InicioComponent implements OnInit {
   protected items : number[] = [];
 
-  constructor() { }
+  constructor(private load_script:LoadScriptsService) { 
+    load_script.load_files("inicio");
+  }
 
   ngOnInit(): void {
     this.Instanciar_items();
