@@ -6,7 +6,7 @@ import { LoadScriptsService } from '../../services/load-scripts.service';
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
-
+  
   constructor(private load_script:LoadScriptsService) { 
     load_script.load_files("movimiento");
   }

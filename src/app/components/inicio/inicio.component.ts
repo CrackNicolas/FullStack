@@ -7,7 +7,7 @@ import { LoadScriptsService } from 'src/app/services/load-scripts.service';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
-  protected items : number[] = [];
+  protected items : number [] = [];
 
   constructor(private load_script:LoadScriptsService) { 
     load_script.load_files("inicio");
